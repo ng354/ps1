@@ -1,5 +1,5 @@
 
-let rec is_mon_inc (x:int list) : bool =
+(*let rec is_mon_inc (x:int list) : bool =
 	match x with 
 	| [] -> true
 	| [_] -> true
@@ -33,7 +33,7 @@ let rec unflatten (k: int) (lst: list) : list list =
 		match rem with Some
 		[] - > lst_acc @ acc
 		| h::t -> if count = k then helper 0
-		[] rem (lst_acc@acc) else helper(count + 1) (acc@h) t list_acc
+		[] rem (lst_acc@acc) else helper(count + 1) (acc@h) t list_acc*)
 
 
 
@@ -45,6 +45,11 @@ let rec unflatten (k: int) (lst: list) : list list =
 
 let rev_int (first_num : int) : int = 
 	let rec into_list (number: int) : int list =
-	match number with
-	| 0 -> []
-	| _ -> ((number mod 10) :: []) @ into_list (number/10) 
+		match number with
+		| 0 -> []
+		| _ -> ((number mod 10) :: []) @ into_list (number/10) in 
+	let rec list_to_string (lst:int list) : string =
+		match lst with 
+		| [] -> ""
+		| h::t -> string_of_int(h) ^ list_to_string t
+	in int_of_string(list_to_string(into_list(first_num)));;
