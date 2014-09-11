@@ -38,3 +38,12 @@ let rec unflatten (k: int) (lst: list) : list list =
 
 
 
+(* 4. The function rev_int takes an integer first_num and returns an
+*integer whose digits are the reverse of first_num. The sign remains
+*unchanged.*)
+
+let rev_int (first_num : int) : int = 
+	let rec into_list (number: int) : int list =
+	match number with
+	| 0 -> []
+	| _ -> ((number mod 10) :: []) @ into_list (number/10) 
