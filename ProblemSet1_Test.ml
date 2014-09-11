@@ -18,8 +18,8 @@ TEST_UNIT "test_is_unimodel3" = assert_false (is_unimodel [1;2;3;2;3])
 TEST_UNIT "test_is_unimodel3" = assert_false (is_unimodel [4;3;5])
 
 
-(*TEST_UNIT "test_powerset1" = assert_true (powerset1 [1;2;3] =
- [[1];[2];[3];[1;2];[1;3];[2;3];[1;2;3]])*)
+TEST_UNIT "test_powerset1" = assert_true (powerset [1;2;3] =
+ [[1];[2];[3];[1;2];[1;3];[2;3];[1;2;3]])
 
 TEST_UNIT  "test_rev_int1" = assert_true (rev_int 123= 321)
 TEST_UNIT  "test_rev_int2" = assert_true (rev_int 123678 = 876321)
