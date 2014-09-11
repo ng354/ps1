@@ -26,6 +26,15 @@ let rec rev_int (x:int) : int =
 	
 
 
+let rec unflatten (k: int) (lst: list) : list list = 
+	if k <= 0 then None else 
+	let rec take_apart count acc rem lst_acc = 
+		match rem with Some
+		[] - > lst_acc @ acc
+		| h::t -> if count = k then helper 0
+		[] rem (lst_acc@acc) else helper(count + 1) (acc@h) t list_acc
+
+
 
 
 
