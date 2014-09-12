@@ -76,4 +76,31 @@ let unflatten (k : int) (lst : 'a list) : 'a list list option =
 					else take_apart (b-1) t (lst_acc (h::temp_lst)) in Some (take_apart k lst)
 
 
+(*6. given a list of Roman numerals as inputs, int_of_roman returns the integer
+*value of the Roman numerals *)
 
+type numeral = I | V| X | L | C | D | M 
+type roman = numeral list
+let rec int_of_roman (r: roman) : int = 
+	let int_of_numeral = function
+	  	| I -> 1
+	  	| V -> 5
+	  	| X -> 10
+	  	| L -> 50
+	  	| C -> 100
+	  	| D -> 500
+	  	| M -> 1000 in 
+
+	let rec roman_tolist (r: roman): int list =
+		match r with
+		|[] -> []
+		|h::t -> int_of_numeral(h)::roman_tolist(t) in
+
+	let rec sum_ints (r :int list) (x: int) : int= 
+		match r with
+		|[] -> x
+		|h::[] -> (x+h)
+		|h1::h2::t -> if h1 < h2 then sum_ints (h2::t) (x-h1) else
+		sum_ints (h2::t) (h1+x) 
+
+	in sum_ints (roman_tolist r) 0 
