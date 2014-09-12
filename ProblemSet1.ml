@@ -73,12 +73,6 @@ in take_apart k lst []
 
 
 
-
-
-
-
-
-
 let unflatten (k : int) (lst : 'a list) : 'a list list option = 
 	if (k <=0) then None else 
 	let rec take_apart (b : int) (lst' : 'a list) (lst_acc : 'a list list) (temp_lst : 'a list): 'a list list =  
