@@ -62,10 +62,18 @@ let rev_int (first_num : int) : int =
 *multiple of k, the last list is allowed to be a size less than k. 
 *If k<=0 then return None.*)
 
-(*let rec unflatten (k: int) (lst: list) : list list = 
-	if k <= 0 then None else 
-	let rec take_apart count acc rem lst_acc = 
-		match rem with Some
-		[] - > lst_acc @ acc
-		| h::t -> if count = k then helper 0
-		[] rem (lst_acc@acc) else helper(count + 1) (acc@h) t list_acc*)
+
+let unflatten (k : int) (lst : 'a list) : 'a list list option = 
+	if (k <=0) then None else 
+	let rec take_apart (b : int) (lst' : 'a list) (lst_acc : 'a list list) (temp_lst : 'a list): 'a list list =  
+		match lst with 
+		| [] -> begin match temp_lst with 
+					  | _::_ -> temp_lst::lst_acc 
+					  | [] -> lst_acc
+				end 
+		| h::t -> if b = 1 
+					then let new_temp = h::temp_lst in take_apart k t (new_temp@lst')
+					else take_apart (b-1) t (lst_acc (h::temp_lst)) in Some (take_apart k lst)
+
+
+
