@@ -29,5 +29,15 @@ TEST_UNIT  "test_rev_int5" = assert_true (rev_int(-1234)  = -4321)
 TEST_UNIT  "test_rev_int6" = assert_true (rev_int(-1)  = -1)
 
 
+TEST_UNIT  "int_of_roman1" = assert_true (int_of_roman [I;I;I]= 3)
+TEST_UNIT  "int_of_roman2" = assert_true (int_of_roman [I;V]= 4)
+TEST_UNIT  "int_of_roman3" = assert_true (int_of_roman [M;C;M;X;C;I;X]= 1999)
+TEST_UNIT  "int_of_roman4" = assert_false (int_of_roman [I;X]= 11)
+
+
+
+
+
+
 let () = Pa_ounit_lib.Runtime.summarize()
 
