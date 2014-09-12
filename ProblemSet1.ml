@@ -63,6 +63,22 @@ let rev_int (first_num : int) : int =
 *If k<=0 then return None.*)
 
 
+let rec unflatten (k : int) (lst : 'a list) : 'a list list option' = 
+	let rec take_apart (k : int) (lst : 'a list) (lst_acc : 'a list list) : 'a list list option = 
+		if (k <=0) then None else
+		match lst with
+		| [] -> Some []
+		| h::t -> take_apart (b-1) 'lst (a::lst_acc)
+in take_apart k lst []
+
+
+
+
+
+
+
+
+
 let unflatten (k : int) (lst : 'a list) : 'a list list option = 
 	if (k <=0) then None else 
 	let rec take_apart (b : int) (lst' : 'a list) (lst_acc : 'a list list) (temp_lst : 'a list): 'a list list =  
